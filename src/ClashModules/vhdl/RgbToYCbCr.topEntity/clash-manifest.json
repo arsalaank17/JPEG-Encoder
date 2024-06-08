@@ -1,0 +1,114 @@
+{
+    "components": [
+        "topEntity"
+    ],
+    "dependencies": {
+        "transitive": []
+    },
+    "domains": {
+        "IntelSystem": {
+            "active_edge": "Rising",
+            "init_behavior": "Defined",
+            "period": 10000,
+            "reset_kind": "Asynchronous",
+            "reset_polarity": "ActiveHigh"
+        },
+        "System": {
+            "active_edge": "Rising",
+            "init_behavior": "Defined",
+            "period": 10000,
+            "reset_kind": "Asynchronous",
+            "reset_polarity": "ActiveHigh"
+        },
+        "XilinxSystem": {
+            "active_edge": "Rising",
+            "init_behavior": "Defined",
+            "period": 10000,
+            "reset_kind": "Synchronous",
+            "reset_polarity": "ActiveHigh"
+        }
+    },
+    "files": [
+        {
+            "name": "topEntity.sdc",
+            "sha256": "13d4c1aafcc09a84d81d3b60d513cb901384a10e27e5a5a16572a600f15895f3"
+        },
+        {
+            "name": "RgbToYCbCr_topEntity_types.vhdl",
+            "sha256": "7e97e9b16f27a50126b660c2a8a3be875b0ddd5c2fe01dbeca6760d36a57353d"
+        },
+        {
+            "name": "topEntity.vhdl",
+            "sha256": "8f1fa62af1468aa49719671eed103aac1295e4a57889e80e945731ea292abf1b"
+        }
+    ],
+    "flags": [
+        20,
+        20
+    ],
+    "hash": "8dac584951f042c0ce0ea2d6abe7397eb42f4bad55f665c7524a4e3513670918",
+    "top_component": {
+        "name": "topEntity",
+        "ports_flat": [
+            {
+                "direction": "in",
+                "domain": "System",
+                "is_clock": true,
+                "name": "clk",
+                "type_name": "clk.RgbToYCbCr_topEntity_types.clk_System",
+                "width": 1
+            },
+            {
+                "direction": "in",
+                "domain": "System",
+                "is_clock": false,
+                "name": "rst",
+                "type_name": "rst.RgbToYCbCr_topEntity_types.rst_System",
+                "width": 1
+            },
+            {
+                "direction": "in",
+                "is_clock": false,
+                "name": "i_0",
+                "type_name": "signed(31 downto 0)",
+                "width": 32
+            },
+            {
+                "direction": "in",
+                "is_clock": false,
+                "name": "i_1",
+                "type_name": "signed(31 downto 0)",
+                "width": 32
+            },
+            {
+                "direction": "in",
+                "is_clock": false,
+                "name": "i_2",
+                "type_name": "signed(31 downto 0)",
+                "width": 32
+            },
+            {
+                "direction": "out",
+                "is_clock": false,
+                "name": "ccase_alt_0",
+                "type_name": "signed(31 downto 0)",
+                "width": 32
+            },
+            {
+                "direction": "out",
+                "is_clock": false,
+                "name": "ccase_alt_1",
+                "type_name": "signed(31 downto 0)",
+                "width": 32
+            },
+            {
+                "direction": "out",
+                "is_clock": false,
+                "name": "ccase_alt_2",
+                "type_name": "signed(31 downto 0)",
+                "width": 32
+            }
+        ]
+    },
+    "version": "unstable"
+}

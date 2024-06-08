@@ -1,0 +1,618 @@
+Analysis & Synthesis report for UART_LOOPBACK_CYC1000
+Thu Jun 29 18:15:41 2023
+Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. State Machine - |UART_LOOPBACK_CYC1000|UART:uart_i|UART_TX:uart_tx_i|tx_pstate
+ 10. State Machine - |UART_LOOPBACK_CYC1000|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate
+ 11. Registers Protected by Synthesis
+ 12. Registers Removed During Synthesis
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Source assignments for RST_SYNC:rst_sync_i
+ 17. Parameter Settings for User Entity Instance: Top-level Entity: |uart_loopback_cyc1000
+ 18. Parameter Settings for User Entity Instance: UART:uart_i
+ 19. Parameter Settings for User Entity Instance: UART:uart_i|UART_CLK_DIV:os_clk_divider_i
+ 20. Parameter Settings for User Entity Instance: UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i
+ 21. Parameter Settings for User Entity Instance: UART:uart_i|UART_RX:uart_rx_i
+ 22. Parameter Settings for User Entity Instance: UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i
+ 23. Parameter Settings for User Entity Instance: UART:uart_i|UART_TX:uart_tx_i
+ 24. Parameter Settings for User Entity Instance: UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i
+ 25. Port Connectivity Checks: "RgbToYCbCr:ycbcr"
+ 26. Port Connectivity Checks: "UART:uart_i|UART_CLK_DIV:os_clk_divider_i"
+ 27. Port Connectivity Checks: "UART:uart_i"
+ 28. Post-Synthesis Netlist Statistics for Top Partition
+ 29. Elapsed Time Per Partition
+ 30. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++---------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Thu Jun 29 18:15:41 2023          ;
+; Quartus Prime Version           ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
+; Revision Name                   ; UART_LOOPBACK_CYC1000                          ;
+; Top-level Entity Name           ; UART_LOOPBACK_CYC1000                          ;
+; Family                          ; Cyclone V                                      ;
+; Logic utilization (in ALMs)     ; N/A                                            ;
+; Total registers                 ; 61                                             ;
+; Total pins                      ; 4                                              ;
+; Total virtual pins              ; 0                                              ;
+; Total block memory bits         ; 0                                              ;
+; Total DSP Blocks                ; 6                                              ;
+; Total HSSI RX PCSs              ; 0                                              ;
+; Total HSSI PMA RX Deserializers ; 0                                              ;
+; Total HSSI TX PCSs              ; 0                                              ;
+; Total HSSI PMA TX Serializers   ; 0                                              ;
+; Total PLLs                      ; 0                                              ;
+; Total DLLs                      ; 0                                              ;
++---------------------------------+------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                                   ;
++---------------------------------------------------------------------------------+-----------------------+-----------------------+
+; Option                                                                          ; Setting               ; Default Value         ;
++---------------------------------------------------------------------------------+-----------------------+-----------------------+
+; Device                                                                          ; 5CSEMA5F31C6          ;                       ;
+; Top-level entity name                                                           ; uart_loopback_cyc1000 ; UART_LOOPBACK_CYC1000 ;
+; Family name                                                                     ; Cyclone V             ; Cyclone V             ;
+; Use smart compilation                                                           ; Off                   ; Off                   ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                    ; On                    ;
+; Enable compact report table                                                     ; Off                   ; Off                   ;
+; Restructure Multiplexers                                                        ; Auto                  ; Auto                  ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                   ; Off                   ;
+; Create Debugging Nodes for IP Cores                                             ; Off                   ; Off                   ;
+; Preserve fewer node names                                                       ; On                    ; On                    ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable                ; Enable                ;
+; Verilog Version                                                                 ; Verilog_2001          ; Verilog_2001          ;
+; VHDL Version                                                                    ; VHDL_1993             ; VHDL_1993             ;
+; State Machine Processing                                                        ; Auto                  ; Auto                  ;
+; Safe State Machine                                                              ; Off                   ; Off                   ;
+; Extract Verilog State Machines                                                  ; On                    ; On                    ;
+; Extract VHDL State Machines                                                     ; On                    ; On                    ;
+; Ignore Verilog initial constructs                                               ; Off                   ; Off                   ;
+; Iteration limit for constant Verilog loops                                      ; 5000                  ; 5000                  ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                   ; 250                   ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                    ; On                    ;
+; Infer RAMs from Raw Logic                                                       ; On                    ; On                    ;
+; Parallel Synthesis                                                              ; On                    ; On                    ;
+; DSP Block Balancing                                                             ; Auto                  ; Auto                  ;
+; NOT Gate Push-Back                                                              ; On                    ; On                    ;
+; Power-Up Don't Care                                                             ; On                    ; On                    ;
+; Remove Redundant Logic Cells                                                    ; Off                   ; Off                   ;
+; Remove Duplicate Registers                                                      ; On                    ; On                    ;
+; Ignore CARRY Buffers                                                            ; Off                   ; Off                   ;
+; Ignore CASCADE Buffers                                                          ; Off                   ; Off                   ;
+; Ignore GLOBAL Buffers                                                           ; Off                   ; Off                   ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                   ; Off                   ;
+; Ignore LCELL Buffers                                                            ; Off                   ; Off                   ;
+; Ignore SOFT Buffers                                                             ; On                    ; On                    ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                   ; Off                   ;
+; Optimization Technique                                                          ; Balanced              ; Balanced              ;
+; Carry Chain Length                                                              ; 70                    ; 70                    ;
+; Auto Carry Chains                                                               ; On                    ; On                    ;
+; Auto Open-Drain Pins                                                            ; On                    ; On                    ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                   ; Off                   ;
+; Auto ROM Replacement                                                            ; On                    ; On                    ;
+; Auto RAM Replacement                                                            ; On                    ; On                    ;
+; Auto DSP Block Replacement                                                      ; On                    ; On                    ;
+; Auto Shift Register Replacement                                                 ; Auto                  ; Auto                  ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto                  ; Auto                  ;
+; Auto Clock Enable Replacement                                                   ; On                    ; On                    ;
+; Strict RAM Replacement                                                          ; Off                   ; Off                   ;
+; Allow Synchronous Control Signals                                               ; On                    ; On                    ;
+; Force Use of Synchronous Clear Signals                                          ; Off                   ; Off                   ;
+; Auto Resource Sharing                                                           ; Off                   ; Off                   ;
+; Allow Any RAM Size For Recognition                                              ; Off                   ; Off                   ;
+; Allow Any ROM Size For Recognition                                              ; Off                   ; Off                   ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                   ; Off                   ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                    ; On                    ;
+; Ignore translate_off and synthesis_off directives                               ; Off                   ; Off                   ;
+; Timing-Driven Synthesis                                                         ; On                    ; On                    ;
+; Report Parameter Settings                                                       ; On                    ; On                    ;
+; Report Source Assignments                                                       ; On                    ; On                    ;
+; Report Connectivity Checks                                                      ; On                    ; On                    ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                   ; Off                   ;
+; Synchronization Register Chain Length                                           ; 3                     ; 3                     ;
+; Power Optimization During Synthesis                                             ; Normal compilation    ; Normal compilation    ;
+; HDL message level                                                               ; Level2                ; Level2                ;
+; Suppress Register Optimization Related Messages                                 ; Off                   ; Off                   ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000                  ; 5000                  ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000                  ; 5000                  ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                   ; 100                   ;
+; Clock MUX Protection                                                            ; On                    ; On                    ;
+; Auto Gated Clock Conversion                                                     ; Off                   ; Off                   ;
+; Block Design Naming                                                             ; Auto                  ; Auto                  ;
+; SDC constraint protection                                                       ; Off                   ; Off                   ;
+; Synthesis Effort                                                                ; Auto                  ; Auto                  ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                    ; On                    ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                   ; Off                   ;
+; Analysis & Synthesis Message Level                                              ; Medium                ; Medium                ;
+; Disable Register Merging Across Hierarchies                                     ; Auto                  ; Auto                  ;
+; Resource Aware Inference For Block RAM                                          ; On                    ; On                    ;
+; Automatic Parallel Synthesis                                                    ; On                    ; On                    ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                   ; Off                   ;
++---------------------------------------------------------------------------------+-----------------------+-----------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                     ;
++--------------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path     ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                          ; Library ;
++--------------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
+; ../../../rtl/comp/uart_clk_div.vhd   ; yes             ; User VHDL File  ; C:/Yoli/uart-for-fpga-master/rtl/comp/uart_clk_div.vhd                                ;         ;
+; ../../../rtl/comp/uart_parity.vhd    ; yes             ; User VHDL File  ; C:/Yoli/uart-for-fpga-master/rtl/comp/uart_parity.vhd                                 ;         ;
+; ../../../rtl/comp/uart_debouncer.vhd ; yes             ; User VHDL File  ; C:/Yoli/uart-for-fpga-master/rtl/comp/uart_debouncer.vhd                              ;         ;
+; ../../../rtl/comp/uart_tx.vhd        ; yes             ; User VHDL File  ; C:/Yoli/uart-for-fpga-master/rtl/comp/uart_tx.vhd                                     ;         ;
+; ../../../rtl/comp/uart_rx.vhd        ; yes             ; User VHDL File  ; C:/Yoli/uart-for-fpga-master/rtl/comp/uart_rx.vhd                                     ;         ;
+; ../../../rtl/uart.vhd                ; yes             ; User VHDL File  ; C:/Yoli/uart-for-fpga-master/rtl/uart.vhd                                             ;         ;
+; ../../common/rst_sync.vhd            ; yes             ; User VHDL File  ; C:/Yoli/uart-for-fpga-master/examples/common/rst_sync.vhd                             ;         ;
+; ../uart_loopback_cyc1000.vhd         ; yes             ; User VHDL File  ; C:/Yoli/uart-for-fpga-master/examples/loopback/uart_loopback_cyc1000.vhd              ;         ;
+; RgbToYCbCr_topEntity_types.vhd       ; yes             ; User VHDL File  ; C:/Yoli/uart-for-fpga-master/examples/loopback/quartus/RgbToYCbCr_topEntity_types.vhd ;         ;
+; RgbToYCbCr.vhd                       ; yes             ; User VHDL File  ; C:/Yoli/uart-for-fpga-master/examples/loopback/quartus/RgbToYCbCr.vhd                 ;         ;
++--------------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                 ;
++---------------------------------------------+---------------+
+; Resource                                    ; Usage         ;
++---------------------------------------------+---------------+
+; Estimate of Logic utilization (ALMs needed) ; 81            ;
+;                                             ;               ;
+; Combinational ALUT usage for logic          ; 136           ;
+;     -- 7 input functions                    ; 3             ;
+;     -- 6 input functions                    ; 20            ;
+;     -- 5 input functions                    ; 13            ;
+;     -- 4 input functions                    ; 34            ;
+;     -- <=3 input functions                  ; 66            ;
+;                                             ;               ;
+; Dedicated logic registers                   ; 61            ;
+;                                             ;               ;
+; I/O pins                                    ; 4             ;
+;                                             ;               ;
+; Total DSP Blocks                            ; 6             ;
+;                                             ;               ;
+; Maximum fan-out node                        ; CLK_12M~input ;
+; Maximum fan-out                             ; 61            ;
+; Total fan-out                               ; 720           ;
+; Average fan-out                             ; 3.41          ;
++---------------------------------------------+---------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                      ;
++-----------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------+-----------------------+--------------+
+; Compilation Hierarchy Node                          ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                ; Entity Name           ; Library Name ;
++-----------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------+-----------------------+--------------+
+; |UART_LOOPBACK_CYC1000                              ; 136 (16)            ; 61 (0)                    ; 0                 ; 6          ; 4    ; 0            ; |UART_LOOPBACK_CYC1000                                                             ; UART_LOOPBACK_CYC1000 ; work         ;
+;    |RST_SYNC:rst_sync_i|                            ; 0 (0)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |UART_LOOPBACK_CYC1000|RST_SYNC:rst_sync_i                                         ; RST_SYNC              ; work         ;
+;    |RgbToYCbCr:ycbcr|                               ; 67 (67)             ; 0 (0)                     ; 0                 ; 6          ; 0    ; 0            ; |UART_LOOPBACK_CYC1000|RgbToYCbCr:ycbcr                                            ; RgbToYCbCr            ; work         ;
+;    |UART:uart_i|                                    ; 53 (1)              ; 59 (2)                    ; 0                 ; 0          ; 0    ; 0            ; |UART_LOOPBACK_CYC1000|UART:uart_i                                                 ; UART                  ; work         ;
+;       |UART_CLK_DIV:os_clk_divider_i|               ; 12 (12)             ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |UART_LOOPBACK_CYC1000|UART:uart_i|UART_CLK_DIV:os_clk_divider_i                   ; UART_CLK_DIV          ; work         ;
+;       |UART_DEBOUNCER:\use_debouncer_g:debouncer_i| ; 1 (1)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |UART_LOOPBACK_CYC1000|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i     ; UART_DEBOUNCER        ; work         ;
+;       |UART_RX:uart_rx_i|                           ; 17 (11)             ; 21 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |UART_LOOPBACK_CYC1000|UART:uart_i|UART_RX:uart_rx_i                               ; UART_RX               ; work         ;
+;          |UART_CLK_DIV:rx_clk_divider_i|            ; 6 (6)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |UART_LOOPBACK_CYC1000|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i ; UART_CLK_DIV          ; work         ;
+;       |UART_TX:uart_tx_i|                           ; 22 (16)             ; 22 (17)                   ; 0                 ; 0          ; 0    ; 0            ; |UART_LOOPBACK_CYC1000|UART:uart_i|UART_TX:uart_tx_i                               ; UART_TX               ; work         ;
+;          |UART_CLK_DIV:tx_clk_divider_i|            ; 6 (6)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |UART_LOOPBACK_CYC1000|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i ; UART_CLK_DIV          ; work         ;
++-----------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------+-----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary  ;
++---------------------------------+-------------+
+; Statistic                       ; Number Used ;
++---------------------------------+-------------+
+; Two Independent 18x18           ; 3           ;
+; Independent 18x18 plus 36       ; 3           ;
+; Total number of DSP blocks      ; 6           ;
+;                                 ;             ;
+; Fixed Point Unsigned Multiplier ; 6           ;
++---------------------------------+-------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |UART_LOOPBACK_CYC1000|UART:uart_i|UART_TX:uart_tx_i|tx_pstate                                                              ;
++---------------------+-------------------+---------------------+--------------------+--------------------+------------------+----------------+
+; Name                ; tx_pstate.stopbit ; tx_pstate.paritybit ; tx_pstate.databits ; tx_pstate.startbit ; tx_pstate.txsync ; tx_pstate.idle ;
++---------------------+-------------------+---------------------+--------------------+--------------------+------------------+----------------+
+; tx_pstate.idle      ; 0                 ; 0                   ; 0                  ; 0                  ; 0                ; 0              ;
+; tx_pstate.txsync    ; 0                 ; 0                   ; 0                  ; 0                  ; 1                ; 1              ;
+; tx_pstate.startbit  ; 0                 ; 0                   ; 0                  ; 1                  ; 0                ; 1              ;
+; tx_pstate.databits  ; 0                 ; 0                   ; 1                  ; 0                  ; 0                ; 1              ;
+; tx_pstate.paritybit ; 0                 ; 1                   ; 0                  ; 0                  ; 0                ; 1              ;
+; tx_pstate.stopbit   ; 1                 ; 0                   ; 0                  ; 0                  ; 0                ; 1              ;
++---------------------+-------------------+---------------------+--------------------+--------------------+------------------+----------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |UART_LOOPBACK_CYC1000|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate                                                ;
++----------------------+--------------------+----------------------+---------------------+---------------------+-----------------+
+; Name                 ; fsm_pstate.stopbit ; fsm_pstate.paritybit ; fsm_pstate.databits ; fsm_pstate.startbit ; fsm_pstate.idle ;
++----------------------+--------------------+----------------------+---------------------+---------------------+-----------------+
+; fsm_pstate.idle      ; 0                  ; 0                    ; 0                   ; 0                   ; 0               ;
+; fsm_pstate.startbit  ; 0                  ; 0                    ; 0                   ; 1                   ; 1               ;
+; fsm_pstate.databits  ; 0                  ; 0                    ; 1                   ; 0                   ; 1               ;
+; fsm_pstate.paritybit ; 0                  ; 1                    ; 0                   ; 0                   ; 1               ;
+; fsm_pstate.stopbit   ; 1                  ; 0                    ; 0                   ; 0                   ; 1               ;
++----------------------+--------------------+----------------------+---------------------+---------------------+-----------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Protected by Synthesis                                                                                                                         ;
++------------------------------------------+------------------------------------------------------------------+--------------------------------------------+
+; Register Name                            ; Protected by Synthesis Attribute or Preserve Register Assignment ; Not to be Touched by Netlist Optimizations ;
++------------------------------------------+------------------------------------------------------------------+--------------------------------------------+
+; RST_SYNC:rst_sync_i|reset_reg            ; yes                                                              ; yes                                        ;
+; RST_SYNC:rst_sync_i|meta_reg             ; yes                                                              ; yes                                        ;
+; Total number of protected registers is 2 ;                                                                  ;                                            ;
++------------------------------------------+------------------------------------------------------------------+--------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                          ;
++----------------------------------------------------+----------------------------------------+
+; Register name                                      ; Reason for Removal                     ;
++----------------------------------------------------+----------------------------------------+
+; UART:uart_i|UART_TX:uart_tx_i|tx_pstate.paritybit  ; Stuck at GND due to stuck port data_in ;
+; UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.paritybit ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 2              ;                                        ;
++----------------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 61    ;
+; Number of registers using Synchronous Clear  ; 18    ;
+; Number of registers using Synchronous Load   ; 1     ;
+; Number of registers using Asynchronous Clear ; 2     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 30    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; RST_SYNC:rst_sync_i|reset_reg          ; 20      ;
+; RST_SYNC:rst_sync_i|meta_reg           ; 1       ;
+; Total number of inverted registers = 2 ;         ;
++----------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------+
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |UART_LOOPBACK_CYC1000|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[8]                   ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |UART_LOOPBACK_CYC1000|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[2]                              ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |UART_LOOPBACK_CYC1000|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[0]                              ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |UART_LOOPBACK_CYC1000|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[3] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |UART_LOOPBACK_CYC1000|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[3] ;
+; 260:1              ; 8 bits    ; 1384 LEs      ; 80 LEs               ; 1304 LEs               ; Yes        ; |UART_LOOPBACK_CYC1000|UART:uart_i|UART_TX:uart_tx_i|tx_data[3]                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Source assignments for RST_SYNC:rst_sync_i                              ;
++-----------------------------+------------------------+------+-----------+
+; Assignment                  ; Value                  ; From ; To        ;
++-----------------------------+------------------------+------+-----------+
+; SYNCHRONIZER_IDENTIFICATION ; FORCED IF ASYNCHRONOUS ; -    ; meta_reg  ;
+; PRESERVE_REGISTER           ; on                     ; -    ; meta_reg  ;
+; SYNCHRONIZER_IDENTIFICATION ; FORCED IF ASYNCHRONOUS ; -    ; reset_reg ;
+; PRESERVE_REGISTER           ; on                     ; -    ; reset_reg ;
++-----------------------------+------------------------+------+-----------+
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |uart_loopback_cyc1000 ;
++----------------+----------+-----------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                      ;
++----------------+----------+-----------------------------------------------------------+
+; CLK_FREQ       ; 50000000 ; Signed Integer                                            ;
+; BAUD_RATE      ; 9600     ; Signed Integer                                            ;
+; PARITY_BIT     ; none     ; String                                                    ;
+; USE_DEBOUNCER  ; true     ; Enumerated                                                ;
++----------------+----------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART:uart_i ;
++----------------+----------+------------------------------+
+; Parameter Name ; Value    ; Type                         ;
++----------------+----------+------------------------------+
+; clk_freq       ; 50000000 ; Signed Integer               ;
+; baud_rate      ; 9600     ; Signed Integer               ;
+; parity_bit     ; none     ; String                       ;
+; use_debouncer  ; true     ; Enumerated                   ;
++----------------+----------+------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART:uart_i|UART_CLK_DIV:os_clk_divider_i ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; div_max_val    ; 326   ; Signed Integer                                                ;
+; div_mark_pos   ; 325   ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i ;
++----------------+-------+-----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                        ;
++----------------+-------+-----------------------------------------------------------------------------+
+; latency        ; 4     ; Signed Integer                                                              ;
++----------------+-------+-----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART:uart_i|UART_RX:uart_rx_i ;
++----------------+-------+---------------------------------------------------+
+; Parameter Name ; Value ; Type                                              ;
++----------------+-------+---------------------------------------------------+
+; clk_div_val    ; 16    ; Signed Integer                                    ;
+; parity_bit     ; none  ; String                                            ;
++----------------+-------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i ;
++----------------+-------+---------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                            ;
++----------------+-------+---------------------------------------------------------------------------------+
+; div_max_val    ; 16    ; Signed Integer                                                                  ;
+; div_mark_pos   ; 3     ; Signed Integer                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART:uart_i|UART_TX:uart_tx_i ;
++----------------+-------+---------------------------------------------------+
+; Parameter Name ; Value ; Type                                              ;
++----------------+-------+---------------------------------------------------+
+; clk_div_val    ; 16    ; Signed Integer                                    ;
+; parity_bit     ; none  ; String                                            ;
++----------------+-------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i ;
++----------------+-------+---------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                            ;
++----------------+-------+---------------------------------------------------------------------------------+
+; div_max_val    ; 16    ; Signed Integer                                                                  ;
+; div_mark_pos   ; 1     ; Signed Integer                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "RgbToYCbCr:ycbcr"                                                                          ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; i_0[22..19] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_0[31..23] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_0[18..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_1[21..20] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_1[31..22] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_1[19..18] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_1[16..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_1[17]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_2[31..21] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_2[17..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_2[20]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; i_2[19]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_2[18]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; ccase_alt_1 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; ccase_alt_2 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Port Connectivity Checks: "UART:uart_i|UART_CLK_DIV:os_clk_divider_i" ;
++--------+-------+----------+-------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                   ;
++--------+-------+----------+-------------------------------------------+
+; enable ; Input ; Info     ; Stuck at VCC                              ;
++--------+-------+----------+-------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "UART:uart_i"                                                                                ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; din_rdy      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; frame_error  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; parity_error ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 61                          ;
+;     CLR               ; 2                           ;
+;     ENA               ; 28                          ;
+;     ENA SCLR          ; 2                           ;
+;     SCLR              ; 16                          ;
+;     SLD               ; 1                           ;
+;     plain             ; 12                          ;
+; arriav_lcell_comb     ; 136                         ;
+;     arith             ; 75                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 10                          ;
+;         2 data inputs ; 32                          ;
+;         3 data inputs ; 3                           ;
+;         4 data inputs ; 28                          ;
+;     extend            ; 3                           ;
+;         7 data inputs ; 3                           ;
+;     normal            ; 58                          ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 10                          ;
+;         3 data inputs ; 7                           ;
+;         4 data inputs ; 6                           ;
+;         5 data inputs ; 13                          ;
+;         6 data inputs ; 20                          ;
+; arriav_mac            ; 6                           ;
+; boundary_port         ; 4                           ;
+;                       ;                             ;
+; Max LUT depth         ; 11.40                       ;
+; Average LUT depth     ; 5.97                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
+    Info: Processing started: Thu Jun 29 18:15:21 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off uart_loopback_cyc1000 -c UART_LOOPBACK_CYC1000
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file /yoli/uart-for-fpga-master/rtl/comp/uart_clk_div.vhd
+    Info (12022): Found design unit 1: UART_CLK_DIV-RTL File: C:/Yoli/uart-for-fpga-master/rtl/comp/uart_clk_div.vhd Line: 29
+    Info (12023): Found entity 1: UART_CLK_DIV File: C:/Yoli/uart-for-fpga-master/rtl/comp/uart_clk_div.vhd Line: 14
+Info (12021): Found 2 design units, including 1 entities, in source file /yoli/uart-for-fpga-master/rtl/comp/uart_parity.vhd
+    Info (12022): Found design unit 1: UART_PARITY-RTL File: C:/Yoli/uart-for-fpga-master/rtl/comp/uart_parity.vhd Line: 24
+    Info (12023): Found entity 1: UART_PARITY File: C:/Yoli/uart-for-fpga-master/rtl/comp/uart_parity.vhd Line: 13
+Info (12021): Found 2 design units, including 1 entities, in source file /yoli/uart-for-fpga-master/rtl/comp/uart_debouncer.vhd
+    Info (12022): Found design unit 1: UART_DEBOUNCER-RTL File: C:/Yoli/uart-for-fpga-master/rtl/comp/uart_debouncer.vhd Line: 26
+    Info (12023): Found entity 1: UART_DEBOUNCER File: C:/Yoli/uart-for-fpga-master/rtl/comp/uart_debouncer.vhd Line: 13
+Info (12021): Found 2 design units, including 1 entities, in source file /yoli/uart-for-fpga-master/rtl/comp/uart_tx.vhd
+    Info (12022): Found design unit 1: UART_TX-RTL File: C:/Yoli/uart-for-fpga-master/rtl/comp/uart_tx.vhd Line: 31
+    Info (12023): Found entity 1: UART_TX File: C:/Yoli/uart-for-fpga-master/rtl/comp/uart_tx.vhd Line: 13
+Info (12021): Found 2 design units, including 1 entities, in source file /yoli/uart-for-fpga-master/rtl/comp/uart_rx.vhd
+    Info (12022): Found design unit 1: UART_RX-RTL File: C:/Yoli/uart-for-fpga-master/rtl/comp/uart_rx.vhd Line: 32
+    Info (12023): Found entity 1: UART_RX File: C:/Yoli/uart-for-fpga-master/rtl/comp/uart_rx.vhd Line: 13
+Info (12021): Found 2 design units, including 1 entities, in source file /yoli/uart-for-fpga-master/rtl/uart.vhd
+    Info (12022): Found design unit 1: UART-RTL File: C:/Yoli/uart-for-fpga-master/rtl/uart.vhd Line: 45
+    Info (12023): Found entity 1: UART File: C:/Yoli/uart-for-fpga-master/rtl/uart.vhd Line: 19
+Info (12021): Found 2 design units, including 1 entities, in source file /yoli/uart-for-fpga-master/examples/common/rst_sync.vhd
+    Info (12022): Found design unit 1: RST_SYNC-RTL File: C:/Yoli/uart-for-fpga-master/examples/common/rst_sync.vhd Line: 21
+    Info (12023): Found entity 1: RST_SYNC File: C:/Yoli/uart-for-fpga-master/examples/common/rst_sync.vhd Line: 13
+Info (12021): Found 2 design units, including 1 entities, in source file /yoli/uart-for-fpga-master/examples/loopback/uart_loopback_cyc1000.vhd
+    Info (12022): Found design unit 1: UART_LOOPBACK_CYC1000-RTL File: C:/Yoli/uart-for-fpga-master/examples/loopback/uart_loopback_cyc1000.vhd Line: 34
+    Info (12023): Found entity 1: UART_LOOPBACK_CYC1000 File: C:/Yoli/uart-for-fpga-master/examples/loopback/uart_loopback_cyc1000.vhd Line: 18
+Info (12021): Found 2 design units, including 0 entities, in source file rgbtoycbcr_topentity_types.vhd
+    Info (12022): Found design unit 1: RgbToYCbCr_topEntity_types File: C:/Yoli/uart-for-fpga-master/examples/loopback/quartus/RgbToYCbCr_topEntity_types.vhd Line: 5
+    Info (12022): Found design unit 2: RgbToYCbCr_topEntity_types-body File: C:/Yoli/uart-for-fpga-master/examples/loopback/quartus/RgbToYCbCr_topEntity_types.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file rgbtoycbcr.vhd
+    Info (12022): Found design unit 1: RgbToYCbCr-structural File: C:/Yoli/uart-for-fpga-master/examples/loopback/quartus/RgbToYCbCr.vhd Line: 23
+    Info (12023): Found entity 1: RgbToYCbCr File: C:/Yoli/uart-for-fpga-master/examples/loopback/quartus/RgbToYCbCr.vhd Line: 10
+Info (12127): Elaborating entity "uart_loopback_cyc1000" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at uart_loopback_cyc1000.vhd(49): object "out2" assigned a value but never read File: C:/Yoli/uart-for-fpga-master/examples/loopback/uart_loopback_cyc1000.vhd Line: 49
+Warning (10036): Verilog HDL or VHDL warning at uart_loopback_cyc1000.vhd(50): object "out3" assigned a value but never read File: C:/Yoli/uart-for-fpga-master/examples/loopback/uart_loopback_cyc1000.vhd Line: 50
+Warning (10492): VHDL Process Statement warning at uart_loopback_cyc1000.vhd(104): signal "out1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Yoli/uart-for-fpga-master/examples/loopback/uart_loopback_cyc1000.vhd Line: 104
+Warning (10492): VHDL Process Statement warning at uart_loopback_cyc1000.vhd(105): signal "out1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Yoli/uart-for-fpga-master/examples/loopback/uart_loopback_cyc1000.vhd Line: 105
+Warning (10492): VHDL Process Statement warning at uart_loopback_cyc1000.vhd(106): signal "out1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Yoli/uart-for-fpga-master/examples/loopback/uart_loopback_cyc1000.vhd Line: 106
+Warning (10492): VHDL Process Statement warning at uart_loopback_cyc1000.vhd(107): signal "out1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Yoli/uart-for-fpga-master/examples/loopback/uart_loopback_cyc1000.vhd Line: 107
+Info (12128): Elaborating entity "RST_SYNC" for hierarchy "RST_SYNC:rst_sync_i" File: C:/Yoli/uart-for-fpga-master/examples/loopback/uart_loopback_cyc1000.vhd Line: 58
+Info (12128): Elaborating entity "UART" for hierarchy "UART:uart_i" File: C:/Yoli/uart-for-fpga-master/examples/loopback/uart_loopback_cyc1000.vhd Line: 65
+Info (12128): Elaborating entity "UART_CLK_DIV" for hierarchy "UART:uart_i|UART_CLK_DIV:os_clk_divider_i" File: C:/Yoli/uart-for-fpga-master/rtl/uart.vhd Line: 62
+Info (12128): Elaborating entity "UART_DEBOUNCER" for hierarchy "UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i" File: C:/Yoli/uart-for-fpga-master/rtl/uart.vhd Line: 92
+Info (12128): Elaborating entity "UART_RX" for hierarchy "UART:uart_i|UART_RX:uart_rx_i" File: C:/Yoli/uart-for-fpga-master/rtl/uart.vhd Line: 113
+Info (12128): Elaborating entity "UART_CLK_DIV" for hierarchy "UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i" File: C:/Yoli/uart-for-fpga-master/rtl/comp/uart_rx.vhd Line: 55
+Info (12128): Elaborating entity "UART_TX" for hierarchy "UART:uart_i|UART_TX:uart_tx_i" File: C:/Yoli/uart-for-fpga-master/rtl/uart.vhd Line: 135
+Info (12128): Elaborating entity "UART_CLK_DIV" for hierarchy "UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i" File: C:/Yoli/uart-for-fpga-master/rtl/comp/uart_tx.vhd Line: 54
+Info (12128): Elaborating entity "RgbToYCbCr" for hierarchy "RgbToYCbCr:ycbcr" File: C:/Yoli/uart-for-fpga-master/examples/loopback/uart_loopback_cyc1000.vhd Line: 89
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 159 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 1 output pins
+    Info (21061): Implemented 149 logic cells
+    Info (21062): Implemented 6 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
+    Info: Peak virtual memory: 4890 megabytes
+    Info: Processing ended: Thu Jun 29 18:15:41 2023
+    Info: Elapsed time: 00:00:20
+    Info: Total CPU time (on all processors): 00:00:42
+
+
