@@ -2,7 +2,7 @@
 
 Hardware designs in Clash for the Color Space Conversion, Chrominance Subsampling, Discrete Cosine Transform (DCT), Quantization, and Run-Length Encoding (RLE) processes. Also includes a sample implementation of the Color Space Conversion component for the De1-SoC board in Quartus.
 
-Authors : Arsalaan Khan, Yolina Yordanova and Meglina Povlova
+Authors : Arsalaan Khan, Yolina Yordanova and Miglena Pavlova
 
 
 ## Contents
